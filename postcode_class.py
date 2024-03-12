@@ -1,19 +1,25 @@
 import json
+import requests
 
 
-class PostcodeParser:
+class GETPostcodeParser:
 
-    def __init__(self, postcode_file):
-        postcode_info = self._open_json_file(postcode_file)
-        self.status = postcode_info['status']
-        self.result = postcode_info['result']
+    def __init__(self, postcode):
+        url = f"https://api.postcodes.io/postcodes/{postcode}"
+        self.postcode_info = self._get_json_from_url(url)
+        self.status = self.postcode_info['status']
+        self.result = self.postcode_info['result']
         self.postcode = self.result['postcode']
         self.region = self.result['region']
         self.longitude = self.result['longitude']
         self.latitude = self.result['latitude']
 
-    def _open_json_file(self, file):
-        with open(file) as postcode_file:
-            return json.load(postcode_file)
+    def _get_json_from_url(self, url):
+        res = requests.get(url)
+        api_dict = res.json()
+        return api_dict
 
+    def write_json_file(self, filename):
+        with open(filename, "w") as json_file:
+            json.dump(self.postcode_info, json_file)
 
