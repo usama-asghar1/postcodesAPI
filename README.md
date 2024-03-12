@@ -4,3 +4,6 @@ The aim of this project was to demonstrate communication with open Postcodes API
 
 - GET Request performed by inputing a URL and the JSON will be created
 
+```
+api.postcodes.io/postcodes/{:postcode}
+```
