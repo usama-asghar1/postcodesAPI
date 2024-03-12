@@ -1,9 +1,14 @@
-import requests
-import json
+from url_parser import *
 
-res = requests.get("https://api.postcodes.io/postcodes/se288at")
-api_dict = res.json()
+postcode = input("Input a postcode\n")
+parser = APIURLParser(postcode)
 
-with open("new_json_file.json", "w") as json_file:
-    json.dump(api_dict, json_file)
+print(parser.postcode)
+print(parser.status)
+print(parser.postcode)
+print(parser.region)
+print(parser.longitude)
+print(parser.latitude)
+
+
 
