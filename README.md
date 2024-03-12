@@ -1,6 +1,6 @@
 # Postcodes API
 
-The aim of this project was to demonstrate communication with open Postcodes API and store the information to a JSON file. The project also contains testing using the unittest framework, one test is to ensure check if the correct status code is being returned from the response of the API call.
+The aim of this project was to demonstrate communication with open Postcodes API and store the information to a JSON file. The project also contains testing using the unittest framework.
 
 <details>
   <summary>GETPostcodeParser - GET Request performed by inputting a postcode</summary>         
@@ -11,6 +11,7 @@ api.postcodes.io/postcodes/{:postcode}
 ```
   * The class will accept a postcode as an input and provide the option for the attributes to be printed as the result
   * The class has a .write_json_file method which can be instanciated to output a JSON file
+  * Unit test to ensure the correct status code is being returned from the response of the API call.
     
     </p>
 </details>
